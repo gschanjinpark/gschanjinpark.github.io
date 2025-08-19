@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>a — 수학과 개인 웹사이트</title>
-  <meta name="description" content="수학과 학부생/대학원생 개인 웹사이트. 연구 관심사, 프로젝트, 노트, 강의 자료, 연락처." />
+  <title>a — Mathematics Personal Website</title>
+  <meta name="description" content="Personal website of a math student. Research interests, projects, notes, teaching materials, and contact." />
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>∑</text></svg>">
   <!-- Open Graph -->
-  <meta property="og:title" content="a — 수학과 개인 웹사이트" />
-  <meta property="og:description" content="연구 관심사, 프로젝트, 노트, 강의 자료, 연락처." />
+  <meta property="og:title" content="a — Math Personal Website" />
+  <meta property="og:description" content="Research interests, projects, notes, teaching materials, and contact." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=%E2%88%91+Math" />
 
@@ -24,21 +24,21 @@
 
   <style>
     :root{
-      --bg: #0b1220; /* slate-950 */
-      --panel: #0f172a; /* slate-900 */
-      --text: #e5e7eb; /* gray-200 */
-      --muted: #94a3b8; /* slate-400 */
-      --brand: #38bdf8; /* sky-400 */
-      --brand-strong:#0ea5e9; /* sky-500 */
-      --accent:#a78bfa; /* violet-400 */
-      --card:#111827; /* gray-900 */
-      --ring:#1f2937; /* gray-800 */
+      --bg: #0b1220;
+      --panel: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --brand: #38bdf8;
+      --brand-strong:#0ea5e9;
+      --accent:#a78bfa;
+      --card:#111827;
+      --ring:#1f2937;
       --code:#0b1020;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font: 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,Helvetica,Arial,sans-serif;
+      margin:0; font: 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       color:var(--text); background: radial-gradient(1200px 500px at 80% -10%, rgba(56,189,248,.15), transparent),
                            radial-gradient(900px 400px at -10% 10%, rgba(167,139,250,.15), transparent),
                            var(--bg);
@@ -80,7 +80,7 @@
     .list-item{display:flex; gap:12px; padding:12px; border:1px solid rgba(148,163,184,.15); background:rgba(2,6,23,.25); border-radius:14px}
     .list-item .meta{min-width:140px; color:var(--muted)}
 
-    pre, code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    pre, code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
     pre{background:var(--code); border:1px solid rgba(148,163,184,.15); padding:14px; border-radius:12px; overflow:auto}
 
     .theorem{border-left:4px solid var(--brand-strong); background:rgba(56,189,248,.08); padding:12px 14px; border-radius:8px}
@@ -107,28 +107,28 @@
         <div class="logo">∑</div>
         <h1>a · Mathematics</h1>
       </div>
-      <nav class="menu" aria-label="주 메뉴">
-        <a href="#about">소개</a>
-        <a href="#research">관심사</a>
-        <a href="#projects">프로젝트</a>
-        <a href="#notes">노트</a>
-        <a href="#teaching">강의</a>
-        <a href="#contact">연락처</a>
+      <nav class="menu" aria-label="Main Menu">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <!-- HERO -->
-    <section class="hero" aria-label="소개">
+    <section class="hero" aria-label="Intro">
       <div class="hero-grid">
         <div>
-          <span class="pill">수학과 학생 · Logic · TCS · 대수 · 위상</span>
-          <h2>안녕하세요, 저는 <strong>a</strong>입니다.<br>수리논리와 계산이론에 관심이 있어요.</h2>
-          <p>형식적 증명 보조기, 수학 언어 설계, 1차 논리의 기하 응용 등에 흥미가 있습니다. 아래에서 연구 관심사, 프로젝트, 노트/강의 자료를 확인해 주세요.</p>
+          <span class="pill">Math Student · Logic · TCS · Algebra · Topology</span>
+          <h2>Hello, I'm <strong>a</strong>.<br>I am interested in mathematical logic and theory of computation.</h2>
+          <p>I study formal proof assistants, mathematical language design, and applications of first-order logic to geometry. Check my research, projects, notes, and teaching materials below.</p>
           <div class="cta">
-            <a class="btn primary" href="#projects">프로젝트 보기</a>
-            <a class="btn" href="#cv">CV / 이력서</a>
+            <a class="btn primary" href="#projects">See Projects</a>
+            <a class="btn" href="#cv">CV</a>
           </div>
           <div class="quick">
             <a href="#pubs" class="badge">📄 Publications</a>
@@ -138,10 +138,10 @@
           </div>
         </div>
         <div>
-          <pre aria-label="간단한 LaTeX 수식 예시">
+          <pre aria-label="Sample LaTeX">
 $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \\frac{n}{d}$$
 \\[1ex]
-\\textbf{정리.}\; \\text{모든 소수 } p \equiv 1 \pmod 4 \text{ 는 } p=a^2+b^2 \text{ 로 표현된다.}
+\\textbf{Theorem.}\; Every prime $p \\equiv 1 \\pmod 4$ can be expressed as $p=a^2+b^2$.
           </pre>
         </div>
       </div>
@@ -152,31 +152,31 @@ $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \
       <h3 class="kicker">About</h3>
       <div class="grid">
         <article class="card" style="grid-column: span 12">
-          <h4>소개</h4>
-          <p>현재 수학과 재학 중이며, <em>수리논리학</em>, <em>계산 가능성</em>, <em>대수적 구조</em>, <em>위상수학</em>을 공부합니다. Lean/Coq과 같은 증명 보조기 사용 및 수학적 언어 설계에도 관심이 있습니다.</p>
+          <h4>Introduction</h4>
+          <p>I am currently a math student studying <em>logic</em>, <em>computability</em>, <em>algebra</em>, and <em>topology</em>. I am also interested in using proof assistants like Lean/Coq and in designing mathematical languages.</p>
         </article>
       </div>
     </section>
 
-    <!-- RESEARCH INTERESTS -->
+    <!-- RESEARCH -->
     <section id="research" class="section">
       <h3 class="kicker">Research Interests</h3>
       <div class="grid">
         <div class="card">
-          <h4>수리논리 & 형식체계</h4>
-          <p>1차/2차 논리, 완비성/압축 정리, 진리 정의, 반직관 논리, 증명이론.</p>
+          <h4>Logic & Formal Systems</h4>
+          <p>First-/second-order logic, completeness/compactness, truth definitions, intuitionistic logics, proof theory.</p>
         </div>
         <div class="card">
-          <h4>계산이론 (TCS)</h4>
-          <p>튜링 계산 가능성, 복잡도, 결정문제, 오토마타, 형식 언어.</p>
+          <h4>Theoretical Computer Science</h4>
+          <p>Turing computability, complexity, decision problems, automata, formal languages.</p>
         </div>
         <div class="card">
-          <h4>대수 & 기하</h4>
-          <p>갈루아 이론, 환/체/모듈, 다변수 다항식, 대수적 곡선과 위상.</p>
+          <h4>Algebra & Geometry</h4>
+          <p>Galois theory, rings/fields/modules, polynomial algebra, algebraic curves and topology.</p>
         </div>
         <div class="card">
-          <h4>형식 증명 보조기</h4>
-          <p>Lean 4, Coq을 활용한 정리 형식화 및 라이브러리 기여.</p>
+          <h4>Proof Assistants</h4>
+          <p>Lean 4, Coq for theorem formalization and contributions to libraries.</p>
         </div>
       </div>
     </section>
@@ -187,22 +187,22 @@ $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \
       <div class="grid">
         <article class="card">
           <h4>Gödel Coding Visualizer</h4>
-          <p>1차 논리 공식을 자연수로 매핑하고 3D 격자에 시각화. Cantor pairing 사용.</p>
+          <p>Mapping first-order formulas to natural numbers and visualizing them in 3D grid using Cantor pairing.</p>
           <p><a href="#">GitHub ↗</a></p>
         </article>
         <article class="card">
-          <h4>Lean: ℕ의 사실 자동 생성</h4>
-          <p>변수 ≤ 10, 상수 무제한 제약하에서 정식화된 참 문장 목록 생성기.</p>
+          <h4>Lean: True Sentences of ℕ</h4>
+          <p>Generator of true formulas under variable ≤ 10 and unlimited constants.</p>
           <p><a href="#">Repository ↗</a></p>
         </article>
         <article class="card">
-          <h4>계산이론 요약 노트</h4>
-          <p>튜링 기계, λ-계산, 정지문제, 시간/공간 복잡도 치트시트.</p>
-          <p><a href="#">문서 보기 ↗</a></p>
+          <h4>Computation Theory Notes</h4>
+          <p>Cheatsheet for Turing machines, λ-calculus, halting problem, complexity theory.</p>
+          <p><a href="#">View Notes ↗</a></p>
         </article>
         <article class="card">
-          <h4>기하 문제의 논리적 보조선</h4>
-          <p>평면 유클리드 문제를 1차 논리로 표현하고 보조선 도입 규칙 탐구.</p>
+          <h4>Logical Aux Lines in Geometry</h4>
+          <p>Exploring auxiliary lines in Euclidean geometry expressed in first-order logic.</p>
           <p><a href="#">Preprint ↗</a></p>
         </article>
       </div>
@@ -215,25 +215,25 @@ $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \
         <div class="list-item">
           <div class="meta">2025-08-10 · PDF</div>
           <div>
-            <strong>타르스키의 진리 정의 개요</strong>
-            <div class="muted">모형론 관점에서의 금지 정리와 메타언어.</div>
-            <div><a href="#">다운로드</a></div>
+            <strong>Tarski's Truth Definition Overview</strong>
+            <div class="muted">Model-theoretic perspective, undefinability, and metalanguage.</div>
+            <div><a href="#">Download</a></div>
           </div>
         </div>
         <div class="list-item">
           <div class="meta">2025-07-28 · Article</div>
           <div>
-            <strong>Church–Turing 논제: 형식과 의미</strong>
-            <div class="muted">계산 가능성, 부분 재귀 함수, 실세계 모델.</div>
-            <div><a href="#">읽기</a></div>
+            <strong>Church–Turing Thesis: Form and Meaning</strong>
+            <div class="muted">Computability, partial recursive functions, and real-world models.</div>
+            <div><a href="#">Read</a></div>
           </div>
         </div>
         <div class="list-item">
           <div class="meta">2025-07-03 · Slides</div>
           <div>
             <strong>Completeness vs. Compactness</strong>
-            <div class="muted">증명 스케치, 예시, 한계.</div>
-            <div><a href="#">슬라이드</a></div>
+            <div class="muted">Proof sketch, examples, and limitations.</div>
+            <div><a href="#">Slides</a></div>
           </div>
         </div>
       </div>
@@ -244,8 +244,8 @@ $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \
       <h3 class="kicker">Teaching</h3>
       <div class="grid">
         <article class="card">
-          <h4>조교 · 이산수학 (2025 봄)</h4>
-          <p>논리, 그래프, 조합론. 과제/풀이 및 보충자료 제공.</p>
+          <h4>TA · Discrete Mathematics (Spring 2025)</h4>
+          <p>Logic, graphs, combinatorics. Provided assignments, solutions, and extra notes.</p>
           <ul>
             <li><a href="#">Syllabus</a></li>
             <li><a href="#">Problem Set 1</a></li>
@@ -253,8 +253,8 @@ $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \
           </ul>
         </article>
         <article class="card">
-          <h4>읽기 세미나 · GEB</h4>
-          <p>괴델, 에셔, 바흐를 통해 형식주의/구성주의/플라톤주의 논의.</p>
+          <h4>Reading Seminar · GEB</h4>
+          <p>Exploring Gödel, Escher, Bach with discussions on formalism, constructivism, and platonism.</p>
           <ul>
             <li><a href="#">Reading Plan</a></li>
             <li><a href="#">Slides</a></li>
@@ -263,7 +263,7 @@ $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \
       </div>
     </section>
 
-    <!-- PUBLICATIONS / PREPRINTS -->
+    <!-- PUBLICATIONS -->
     <section id="pubs" class="section">
       <h3 class="kicker">Publications / Preprints</h3>
       <ol>
@@ -275,39 +275,12 @@ $${\\mathbb N} = \\{0,1,2,\\dots\\},\quad \\varphi(n) = \\sum_{d\mid n} \mu(d) \
     <!-- CV -->
     <section id="cv" class="section">
       <h3 class="kicker">CV</h3>
-      <p>간단 이력서 PDF를 여기에 업로드하고 링크를 연결하세요.</p>
-      <div class="cta"><a class="btn" href="#">CV 다운로드</a></div>
+      <p>Upload your resume PDF here and link it.</p>
+      <div class="cta"><a class="btn" href="#">Download CV</a></div>
     </section>
 
-    <!-- A SAMPLE THEOREM BOX -->
-    <section class="section" aria-label="샘플 정리">
+    <!-- SAMPLE THEOREM -->
+    <section class="section" aria-label="Sample Theorem">
       <h3 class="kicker">Sample</h3>
       <div class="theorem">
-        <p><strong>정리 (Baire Category).</strong> 완비 거리공간에서 가산 개의 조밀 개집합의 교집합은 조밀하다.</p>
-        <p>스케치: 범주론적 관점의 응용과 함수해석학 예시를 노트에 수록.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h3 class="kicker">Contact</h3>
-      <p>협업/질문은 이메일로 연락해주세요.</p>
-      <ul>
-        <li>Email: <a href="mailto:me(at)example.com" onclick="this.href=this.href.replace('(at)','@');">me(at)example.com</a></li>
-        <li>GitHub: <a href="https://github.com/gosuchan00" target="_blank" rel="noopener">@gosuchan00</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div>© <span id="year"></span> a. 모든 권리 보유.</div>
-    </div>
-  </footer>
-
-  <script>
-    // 연도 자동 업데이트
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+        <p><strong>Theorem (Baire Category
