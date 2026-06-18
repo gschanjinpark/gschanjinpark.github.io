@@ -6,16 +6,18 @@
   <title>Curriculum Vitae</title>
 
   <style>
-    body {
+    /* 스크롤 바운스 방지 및 남색 테마 적용 */
+    html, body {
+      overscroll-behavior-y: none;
+      background-color: #0A192F;
+      color: #E6F1FF;
       margin: 0;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
     }
 
     header {
-      background: #0185f8;
+      background: #020C1B;
       color: #fff;
       padding: 20px 0;
       text-align: center;
@@ -25,21 +27,28 @@
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
-      background: #fff;
+      /* 메인 페이지와 자연스럽게 어울리도록 하얀 배경 제거 */
     }
 
     h1 {
       margin-top: 0;
+      color: #CCD6F6; /* 제목 색상 통일 */
     }
 
     h2 {
       border-bottom: 2px solid #3498db;
       padding-bottom: 5px;
       margin-top: 40px;
+      color: #CCD6F6;
     }
 
     ul {
       margin-left: 20px;
+    }
+
+    /* 본문 내의 굵은 글씨(b 태그) 색상을 조금 더 밝게 처리 */
+    b {
+      color: #CCD6F6;
     }
 
     .cv-section {
@@ -55,21 +64,35 @@
 
     .cv-year {
       white-space: nowrap;
-      color: #555;
+      color: #8892B0; /* 연도 및 항목 이름 색상 변경 */
+      font-weight: bold;
+    }
+
+    /* 리스트 스타일 여백 약간 조정 */
+    .cv-item li {
+      margin-bottom: 5px;
+    }
+
+    .cv-item p {
+      margin: 0 0 5px 0;
     }
 
     footer {
-      background: #2c3e50;
-      color: #fff;
+      background: #020C1B;
+      color: #8892B0;
       text-align: center;
       padding: 15px 0;
       margin-top: 40px;
     }
 
     footer a {
-      color: #ecf0f1;
+      color: #64FFDA;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -87,10 +110,7 @@
   <ul>
     <li><b>Affiliation:</b> Undergraduate school of mathematical science, UNIST</li>
     <li><b>Fields:</b> Foundations of Mathematics, Mathematical Logic</li>
-    <li><b>Memberships:</b>
-      The Mathematical Society of Korea,
-      
-    </li>
+    <li><b>Memberships:</b> The Mathematical Society of Korea</li>
     <li><b>e-mail:</b> bark50542@unist.ac.kr</li>
   </ul>
 
@@ -101,30 +121,26 @@
       <div class="cv-year">2024 ~ :</div>
       <div>
         <b>B.Sc.</b>, Department of Mathematical science, UNIST 
-        
       </div>
     </div>
   </div>
 
-  <h2>Talks</h2>
+  <h2>Activity</h2>
 
   <div class="cv-section">
     <div class="cv-item">
       <div class="cv-year">2025:</div>
       <div>
         <li>2025 BRL in DIGIST, Quantifier elimination and Gröbner basis</li>
-        
       </div>
       <div class="cv-year">2026:</div>
       <div>
         <li>2026 model theory workshop in UNIST, type spaces and countable models</li>
-        
       </div>
       
       <div class="cv-year">2026:</div>
       <div>
         <li>Continuity, Computability, Constructivity 2026 in Kyoto, contribution talk (Computing Noncomputables with Oracle Computation Trees, Advisor : Sewon Park)</li>
-        
       </div>
     </div>
   </div>
@@ -136,34 +152,10 @@
       <div class="cv-year">Cumulative GPA:</div>
       <div>
         <li>
-          
-          <p> 4.15 &sol; 4.30</p>
-        
+          <p>4.15 &sol; 4.30</p>
         </li>
       </div>
 
       <div class="cv-year">Major GPA:</div>
       <div>
         <li>
-          <p>4.14 &sol; 4.30</p>
-        </li>
-      </div>
-
-      
-      <div class="cv-year">2025 : </div>
-      <div>
-        <li>Dean's list in UNIST, first semester</li>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  <p>&copy; 2025 Chanjin Park |
-    <a href="https://gschanjinpark.github.io">gschanjinpark.github.io</a>
-  </p>
-</footer>
-
-</body>
-</html>
