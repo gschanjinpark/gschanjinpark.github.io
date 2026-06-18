@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chanjin Park's page</title>
   <style>
-    body {
+    /* 스크롤 바운스 현상을 막기 위한 설정 */
+    html, body {
+      overscroll-behavior-y: none;
+      background-color: #0A192F; /* 남색 배경 */
+      color: #E6F1FF; /* 밝은 텍스트 색상 */
       margin: 0;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
     }
     header {
-      background: #0185f8;
+      background: #020C1B; /* 배경보다 살짝 더 어두운 남색 */
       color: #fff;
       padding: 20px 0;
       text-align: center;
@@ -26,7 +28,7 @@
       margin-top: 10px;
     }
     nav a {
-      color: #ecf0f1;
+      color: #64FFDA; /* 눈에 띄는 포인트 색상 (민트/하늘) */
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
@@ -47,16 +49,28 @@
       padding-bottom: 5px;
       margin-bottom: 15px;
       font-size: 1.5rem;
+      color: #CCD6F6; /* 제목을 위한 밝은 색상 */
     }
+    
+    /* 본문 내 일반 링크 색상 설정 */
+    p a {
+      color: #64FFDA;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    p a:hover {
+      text-decoration: underline;
+    }
+
     footer {
-      background: #2c3e50;
-      color: #fff;
+      background: #020C1B;
+      color: #8892B0;
       text-align: center;
       padding: 15px 0;
       margin-top: 40px;
     }
     footer a {
-      color: #ecf0f1;
+      color: #64FFDA;
       text-decoration: none;
       font-weight: bold;
     }
@@ -75,31 +89,37 @@
         font-size: 1.25rem;
       }
     }
+    
+    /* 블록 크기 축소 및 애니메이션 제거 */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 너비 약간 축소 */
+      gap: 15px; /* 간격 축소 */
     }
     .project-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      background: #112240; /* 배경보다 살짝 밝은 카드 색상 */
+      border: 1px solid #233554;
+      border-radius: 6px;
+      padding: 12px; /* 여백(크기) 축소 */
+      /* 애니메이션 및 그림자 제거됨 */
     }
     .project-card h3 {
       margin-top: 0;
-      color: #2c3e50;
+      margin-bottom: 8px;
+      color: #CCD6F6;
+      font-size: 1.1rem; /* 제목 크기 축소 */
+    }
+    .project-card p {
+      color: #8892B0; /* 본문보다 살짝 어두운 설명 글씨 */
+      font-size: 0.9rem; /* 글씨 크기 축소 */
+      margin-top: 0;
+      margin-bottom: 12px;
     }
     .project-card a {
       color: #3498db;
       text-decoration: none;
       font-weight: bold;
+      font-size: 0.9rem;
     }
     .project-card a:hover {
       text-decoration: underline;
