@@ -105,38 +105,6 @@
       text-decoration: underline;
     }
     
-    /* 새로 추가된 파일 업로드 폼 CSS */
-    .upload-form {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .upload-form input[type="file"] {
-      display: block;
-      margin-bottom: 15px;
-      font-family: inherit;
-    }
-    .upload-form button {
-      background: #3498db;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .upload-form button:hover {
-      background: #0185f8;
-    }
-    .upload-note {
-      font-size: 0.85rem;
-      color: #7f8c8d;
-      margin-top: 10px;
-    }
   </style>
 </head>
 <body>
@@ -164,23 +132,24 @@
     </section>
 
     <section id="study">
-      <h2>Research</h2>
-      <p>Research projects and studies will be updated here.</p>
+      <h2>Research & Papers</h2>
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <h3>Introduction to Model Theory</h3>
+          <p>Basic concepts of mathematical logic and model theory structure.</p>
+          <a href="pdf/model_theory_notes.pdf" target="_blank">View PDF</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Proof Theory & Reverse Mathematics</h3>
+          <p>A study on interpretability, provability logic, and reverse mathematics.</p>
+          <a href="pdf/proof_theory_survey.pdf" download>Download PDF</a>
+        </div>
+
+        </div>
     </section>
 
-    <section id="upload">
-      <h2>Document Upload</h2>
-      <div class="upload-form">
-        <form action="#" method="POST" enctype="multipart/form-data">
-          <label for="pdf-upload"><strong>Submit a PDF document:</strong></label><br><br>
-          <input type="file" id="pdf-upload" name="pdf-upload" accept="application/pdf" required>
-          <button type="submit">Upload PDF</button>
-        </form>
-        <p class="upload-note">
-          <em>* Note: Since this site is hosted on GitHub Pages, actual file processing requires a backend integration.</em>
-        </p>
-      </div>
-    </section>
 
     <section id="contact">
       <h2>Contact</h2>
