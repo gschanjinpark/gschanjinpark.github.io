@@ -6,49 +6,48 @@
   <title>Curriculum Vitae</title>
 
   <style>
-    /* 스크롤 바운스 방지 및 남색 테마 적용 */
+    /* 스크롤 바운스 방지 및 GitHub Dark 테마 적용 */
     html, body {
       overscroll-behavior-y: none;
-      background-color: #0A192F;
-      color: #E6F1FF;
+      background-color: #0d1117; /* GitHub Dark 배경 */
+      color: #c9d1d9; /* 기본 텍스트 색상 */
       margin: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       line-height: 1.6;
     }
 
     header {
-      background: #020C1B;
-      color: #fff;
+      background: #161b22;
+      color: #f0f6fc;
       padding: 20px 0;
       text-align: center;
+      border-bottom: 1px solid #30363d;
     }
 
     .container {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
-      /* 메인 페이지와 자연스럽게 어울리도록 하얀 배경 제거 */
     }
 
     h1 {
       margin-top: 0;
-      color: #CCD6F6; /* 제목 색상 통일 */
+      color: #f0f6fc;
     }
 
     h2 {
-      border-bottom: 2px solid #3498db;
+      border-bottom: 1px solid #30363d;
       padding-bottom: 5px;
       margin-top: 40px;
-      color: #CCD6F6;
+      color: #f0f6fc;
     }
 
     ul {
       margin-left: 20px;
     }
 
-    /* 본문 내의 굵은 글씨(b 태그) 색상을 조금 더 밝게 처리 */
     b {
-      color: #CCD6F6;
+      color: #f0f6fc;
     }
 
     .cv-section {
@@ -64,11 +63,10 @@
 
     .cv-year {
       white-space: nowrap;
-      color: #8892B0; /* 연도 및 항목 이름 색상 변경 */
+      color: #8b949e; /* GitHub 서브텍스트 회색 */
       font-weight: bold;
     }
 
-    /* 리스트 스타일 여백 약간 조정 */
     .cv-item li {
       margin-bottom: 5px;
     }
@@ -78,15 +76,16 @@
     }
 
     footer {
-      background: #020C1B;
-      color: #8892B0;
+      background: #161b22;
+      color: #8b949e;
       text-align: center;
       padding: 15px 0;
       margin-top: 40px;
+      border-top: 1px solid #30363d;
     }
 
     footer a {
-      color: #64FFDA;
+      color: #58a6ff;
       text-decoration: none;
       font-weight: bold;
     }
