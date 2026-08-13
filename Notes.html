@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Notes - Chanjin Park</title>
 
+  <!-- MathJax CDN: site-lib 폴더 없이 수식 렌더링 지원 -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']], // $인라인 수식$
+        displayMath: [['$$', '$$'], ['\\[', '\\]']], // $$블록 수식$$
+        processEscapes: true
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    /* index.html 과 동일한 스크롤 및 배경 스타일 */
+    html, body {
+      overscroll-behavior-y: none;
+      background-color: #0A192F;
+      color: #E6F1FF;
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background: #020C1B;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #FFFFFF;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    
+    /* 노트 섹션 및 구분선 (흰색) */
+    .note-card {
+      background: #112240;
+      border: 1px solid #233554;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    .note-card h2 {
+      border-bottom: 2px solid #FFFFFF; /* 흰색 구분선 */
+      padding-bottom: 8px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+      color: #CCD6F6;
+    }
+    .note-card h3 {
+      color: #CCD6F6;
+      margin-top: 20px;
+    }
+
+    /* 링크 스타일 */
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 코드 및 인라인 코드 스타일 (옵시디언 호환) */
+    code {
+      background: #020C1B;
+      color: #64FFDA;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #020C1B;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      border: 1px solid #233554;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* 인용구 스타일 */
+    blockquote {
+      border-left: 4px solid #FFFFFF;
+      margin: 15px 0;
+      padding-left: 15px;
+      color: #8892B0;
+    }
+
+    footer {
+      background: #020C1B;
+      color: #8892B0;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Study Notes</h1>
+    <nav>
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="Notes.html">Study Notes</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    
+    <!-- 첫 번째 노트 카드 예시 -->
+    <article class="note-card">
+      <h2>Mathematical Logic & Model Theory</h2>
+      <p>옵시디언에서 작성한 내용을 이곳에 HTML 형태로 붙여넣으시면 됩니다.</p>
+      
+      <h3>1. Mathematical Formulas Example</h3>
+      <p>인라인 수식 예시: $E = mc^2$ 또는 Gödel's Incompleteness Theorem $\mathbf{PA} \nvdash \mathrm{Con}(\mathbf{PA})$.</p>
+      
+      <p>블록 수식 예시:</p>
+      $$
+      \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+      $$
+
+      <h3>2. Code Block Example</h3>
+      <pre><code># Lean 4 또는 Python 코드 등을 넣을 수 있습니다.
+def hello_logic():
+    print("Mathematical Logic Study")
+</code></pre>
+    </article>
+
+    <!-- 두 번째 노트 카드 추가 시 아래 영역 복사해서 사용 -->
+    <!--
+    <article class="note-card">
+      <h2>노트 제목</h2>
+      <p>노트 내용...</p>
+    </article>
+    -->
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Chanjin Park | <a href="https://gschanjinpark.github.io">gschanjinpark.github.io</a></p>
+  </footer>
+</body>
+</html>
