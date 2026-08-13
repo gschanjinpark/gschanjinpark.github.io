@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Notes — Chanjin Park</title>
+  <style>
+    /* 스크롤 바운스 현상을 막기 위한 설정 */
+    html, body {
+      overscroll-behavior-y: none;
+      background-color: #0A192F; /* 남색 배경 */
+      color: #E6F1FF; /* 밝은 텍스트 색상 */
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background: #020C1B; /* 배경보다 살짝 더 어두운 남색 */
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    /* 형광색(#64FFDA) -> 흰색(#FFFFFF) 변경 */
+    nav a {
+      color: #FFFFFF; 
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #CCD6F6; /* 제목을 위한 밝은 색상 */
+    }
+
+    /* 본문 내 일반 링크 색상 (흰색 변경) */
+    p a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    /* 카드 및 그리드 스타일 */
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .note-card {
+      background: #112240;
+      border: 1px solid #233554;
+      border-radius: 6px;
+      padding: 16px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .note-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #CCD6F6;
+      font-size: 1.1rem;
+      padding-right: 25px; /* 삭제 버튼 공간 확보 */
+    }
+    .note-card .meta-date {
+      font-size: 0.8rem;
+      color: #8892B0;
+      margin-bottom: 8px;
+    }
+    .note-card p {
+      color: #8892B0;
+      font-size: 0.9rem;
+      margin-top: 0;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+    /* 카드 링크 색상 (흰색 변경) */
+    .note-card a.note-link {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+    .note-card a.note-link:hover {
+      text-decoration: underline;
+    }
+
+    /* 카드 삭제 버튼 스타일 */
+    .delete-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: #8892B0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .delete-btn:hover {
+      color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.1);
+    }
+
+    /* 노트 작성 폼 폼 스타일 */
+    .add-note-form {
+      background: #112240;
+      border: 1px solid #233554;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: #CCD6F6;
+      margin-bottom: 5px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 8px 12px;
+      background: #0A192F;
+      border: 1px solid #233554;
+      border-radius: 4px;
+      color: #E6F1FF;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 60px;
+    }
+    .btn-submit {
+      background: #3498db;
+      color: #fff;
+      border: none;
+      padding: 9px 18px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover {
+      background: #2980b9;
+    }
+
+    footer {
+      background: #020C1B;
+      color: #8892B0;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+    /* 푸터 링크 색상 (흰색 변경) */
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+      section h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Study Notes — Chanjin Park</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="Notes.html">Study Notes</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    
+    <!-- 노트 추가 폼 영역 -->
+    <section id="add-note-section">
+      <h2>Add New Note</h2>
+      <form id="noteForm" class="add-note-form">
+        <div class="form-group">
+          <label for="noteTitle">Title</label>
+          <input type="text" id="noteTitle" class="form-control" placeholder="e.g. Model Theory & Forcing" required>
+        </div>
+        <div class="form-group">
+          <label for="noteDate">Date / Year (Optional)</label>
+          <input type="text" id="noteDate" class="form-control" placeholder="e.g. 2026 Spring">
+        </div>
+        <div class="form-group">
+          <label for="noteUrl">Link (PDF or External URL)</label>
+          <input type="text" id="noteUrl" class="form-control" placeholder="e.g. pdf/Note.pdf or https://..." required>
+        </div>
+        <div class="form-group">
+          <label for="noteDesc">Description</label>
+          <textarea id="noteDesc" class="form-control" placeholder="Brief explanation of this note..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Add Note</button>
+      </form>
+    </section>
+
+    <!-- 노트 목록 출력 영역 -->
+    <section id="notes-section">
+      <h2>All Notes</h2>
+      <div id="notesGrid" class="notes-grid">
+        <!-- JavaScript에 의해 카드들이 들어오는 공간입니다 -->
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Chanjin Park | <a href="https://gschanjinpark.github.io">gschanjinpark.github.io</a></p>
+  </footer>
+
+  <!-- 노트 생성 및 삭제 JavaScript -->
+  <script>
+    // 기본으로 제공할 예시 데이터
+    const initialNotes = [
+      {
+        id: Date.now(),
+        title: "Introduction to Model Theory",
+        date: "2026",
+        url: "pdf/Note.pdf",
+        desc: "Basic concepts of mathematical logic and model theory structure."
+      }
+    ];
+
+    // LocalStorage에서 데이터 불러오기 (없으면 기본 예시 사용)
+    function loadNotes() {
+      const savedNotes = localStorage.getItem("chanjin_study_notes");
+      if (savedNotes) {
+        return JSON.parse(savedNotes);
+      } else {
+        localStorage.setItem("chanjin_study_notes", JSON.stringify(initialNotes));
+        return initialNotes;
+      }
+    }
+
+    // 화면에 노트 출력하기
+    function renderNotes() {
+      const notes = loadNotes();
+      const notesGrid = document.getElementById("notesGrid");
+      notesGrid.innerHTML = "";
+
+      if (notes.length === 0) {
+        notesGrid.innerHTML = "<p style='color:#8892B0;'>No study notes added yet.</p>";
+        return;
+      }
+
+      notes.forEach(note => {
+        const card = document.createElement("div");
+        card.className = "note-card";
+        card.innerHTML = `
+          <button class="delete-btn" onclick="deleteNote(${note.id})" title="Delete Note">&times;</button>
+          <div>
+            <h3>${escapeHtml(note.title)}</h3>
+            ${note.date ? `<div class="meta-date">${escapeHtml(note.date)}</div>` : ''}
+            <p>${escapeHtml(note.desc || '')}</p>
+          </div>
+          <div>
+            <a href="${escapeHtml(note.url)}" target="_blank" class="note-link">View Note &rarr;</a>
+          </div>
+        `;
+        notesGrid.appendChild(card);
+      });
+    }
+
+    // 새로운 노트 추가하기
+    document.getElementById("noteForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("noteTitle").value.trim();
+      const date = document.getElementById("noteDate").value.trim();
+      const url = document.getElementById("noteUrl").value.trim();
+      const desc = document.getElementById("noteDesc").value.trim();
+
+      if (!title || !url) return;
+
+      const newNote = {
+        id: Date.now(),
+        title: title,
+        date: date,
+        url: url,
+        desc: desc
+      };
+
+      const notes = loadNotes();
+      notes.unshift(newNote); // 최신 노트가 맨 앞에 오도록 추가
+      localStorage.setItem("chanjin_study_notes", JSON.stringify(notes));
+
+      // 폼 초기화 및 새로고침
+      document.getElementById("noteForm").reset();
+      renderNotes();
+    });
+
+    // 노트 삭제하기
+    function deleteNote(id) {
+      if (confirm("Are you sure you want to delete this note?")) {
+        let notes = loadNotes();
+        notes = notes.filter(note => note.id !== id);
+        localStorage.setItem("chanjin_study_notes", JSON.stringify(notes));
+        renderNotes();
+      }
+    }
+
+    // 보안을 위한 HTML Escape 함수
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    // 페이지 로드시 노트 목록 출력 실행
+    document.addEventListener("DOMContentLoaded", renderNotes);
+  </script>
+</body>
+</html>
