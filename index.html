@@ -27,8 +27,9 @@
     nav {
       margin-top: 10px;
     }
+    /* 형광색(#64FFDA) -> 흰색(#FFFFFF)으로 변경 */
     nav a {
-      color: #64FFDA; /* 눈에 띄는 포인트 색상 (민트/하늘) */
+      color: #FFFFFF;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
@@ -52,9 +53,9 @@
       color: #CCD6F6; /* 제목을 위한 밝은 색상 */
     }
     
-    /* 본문 내 일반 링크 색상 설정 */
+    /* 본문 내 일반 링크 색상 (흰색으로 변경) */
     p a {
-      color: #64FFDA;
+      color: #FFFFFF;
       text-decoration: none;
       font-weight: bold;
     }
@@ -69,8 +70,9 @@
       padding: 15px 0;
       margin-top: 40px;
     }
+    /* 푸터 링크 색상 (흰색으로 변경) */
     footer a {
-      color: #64FFDA;
+      color: #FFFFFF;
       text-decoration: none;
       font-weight: bold;
     }
@@ -90,33 +92,33 @@
       }
     }
     
-    /* 블록 크기 축소 및 애니메이션 제거 */
+    /* 카드 및 그리드 스타일 */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 너비 약간 축소 */
-      gap: 15px; /* 간격 축소 */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
     }
     .project-card {
-      background: #112240; /* 배경보다 살짝 밝은 카드 색상 */
+      background: #112240;
       border: 1px solid #233554;
       border-radius: 6px;
-      padding: 12px; /* 여백(크기) 축소 */
-      /* 애니메이션 및 그림자 제거됨 */
+      padding: 12px;
     }
     .project-card h3 {
       margin-top: 0;
       margin-bottom: 8px;
       color: #CCD6F6;
-      font-size: 1.1rem; /* 제목 크기 축소 */
+      font-size: 1.1rem;
     }
     .project-card p {
-      color: #8892B0; /* 본문보다 살짝 어두운 설명 글씨 */
-      font-size: 0.9rem; /* 글씨 크기 축소 */
+      color: #8892B0;
+      font-size: 0.9rem;
       margin-top: 0;
       margin-bottom: 12px;
     }
+    /* 카드 내 링크 색상 (흰색으로 변경) */
     .project-card a {
-      color: #3498db;
+      color: #FFFFFF;
       text-decoration: none;
       font-weight: bold;
       font-size: 0.9rem;
@@ -132,7 +134,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#research">Research</a>
-      <a href="#study">Study</a>
+      <a href="Notes.html">Study Notes</a> <!-- Notes.html로 이동하는 네비게이션 항목 추가 -->
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -153,20 +155,20 @@
     <section id="research">
       <h2>Research</h2>
       <h3>Example Research Paper Title</h3>
-          <p>Published in Journal of Mathematical Logic (Example). A study on provability logic.</p>
-          <a href="https://arxiv.org/abs/example" target="_blank">View External Link</a>
+      <p>Published in Journal of Mathematical Logic (Example). A study on provability logic.</p>
+      <a href="https://arxiv.org/abs/example" target="_blank" style="color: #FFFFFF; font-weight: bold;">View External Link</a>
     </section>
 
     <section id="study">
       <h2>Study Notes</h2>
-       <h3>Introduction to Model Theory</h3>
-          <p>Basic concepts of mathematical logic and model theory structure.</p>
-          <a href="pdf/Note.pdf" target="_blank">View PDF</a>
+      <p>Check out my collected study notes and logic materials on the dedicated notes page.</p>
+      <!-- Notes.html로 연결되는 버튼/링크 추가 -->
+      <p><a href="Notes.html" style="font-size: 1.1rem;">Go to Study Notes Page &rarr;</a></p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:gschanpark@gmail.com">gschanpark@gmail.com</a>,  <a href="mailto:bark50542@unist.ac.kr">bark50542@unist.ac.kr</a></p>
+      <p>Email: <a href="mailto:gschanpark@gmail.com">gschanpark@gmail.com</a>, <a href="mailto:bark50542@unist.ac.kr">bark50542@unist.ac.kr</a></p>
     </section>
   </div>
 
