@@ -27,7 +27,6 @@
     nav {
       margin-top: 10px;
     }
-    /* 형광색(#64FFDA) -> 흰색(#FFFFFF)으로 변경 */
     nav a {
       color: #FFFFFF;
       margin: 0 15px;
@@ -46,14 +45,14 @@
       margin-bottom: 40px;
     }
     section h2 {
-      border-bottom: 2px solid #3498db;
+      border-bottom: 2px solid #FFFFFF; /* 파란색에서 흰색으로 변경 */
       padding-bottom: 5px;
       margin-bottom: 15px;
       font-size: 1.5rem;
-      color: #CCD6F6; /* 제목을 위한 밝은 색상 */
+      color: #CCD6F6;
     }
     
-    /* 본문 내 일반 링크 색상 (흰색으로 변경) */
+    /* 본문 내 일반 링크 색상 (흰색) */
     p a {
       color: #FFFFFF;
       text-decoration: none;
@@ -70,7 +69,6 @@
       padding: 15px 0;
       margin-top: 40px;
     }
-    /* 푸터 링크 색상 (흰색으로 변경) */
     footer a {
       color: #FFFFFF;
       text-decoration: none;
@@ -92,7 +90,6 @@
       }
     }
     
-    /* 카드 및 그리드 스타일 */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -116,7 +113,6 @@
       margin-top: 0;
       margin-bottom: 12px;
     }
-    /* 카드 내 링크 색상 (흰색으로 변경) */
     .project-card a {
       color: #FFFFFF;
       text-decoration: none;
@@ -132,10 +128,10 @@
   <header>
     <h1>Chanjin Park — Mathematical logic Student</h1>
     <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="Notes.html">Study Notes</a> <!-- Notes.html로 이동하는 네비게이션 항목 추가 -->
-      <a href="#contact">Contact</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="Notes.html">Study Notes</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
   </header>
 
@@ -162,7 +158,6 @@
     <section id="study">
       <h2>Study Notes</h2>
       <p>Check out my collected study notes and logic materials on the dedicated notes page.</p>
-      <!-- Notes.html로 연결되는 버튼/링크 추가 -->
       <p><a href="Notes.html" style="font-size: 1.1rem;">Go to Study Notes Page &rarr;</a></p>
     </section>
 
