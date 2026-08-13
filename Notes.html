@@ -9,8 +9,8 @@
   <script>
     MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']], // $인라인 수식$
-        displayMath: [['$$', '$$'], ['\\[', '\\]']], // $$블록 수식$$
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
         processEscapes: true
       },
       options: {
@@ -22,7 +22,10 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
-    /* index.html 과 동일한 스크롤 및 배경 스타일 */
+    /* 기본 스크롤 및 배경 스타일 */
+    html {
+      scroll-behavior: smooth; /* 목차 클릭 시 부드러운 스크롤 이동 */
+    }
     html, body {
       overscroll-behavior-y: none;
       background-color: #0A192F;
@@ -53,22 +56,73 @@
     nav a:hover {
       text-decoration: underline;
     }
+
+    /* 레이아웃 구조: 2열 (목록 + 본문) */
     .container {
-      max-width: 900px;
-      margin: 20px auto;
+      max-width: 1200px;
+      margin: 30px auto;
       padding: 0 20px;
+      display: grid;
+      grid-template-columns: 260px 1fr; /* 좌측 사이드바 260px, 우측 본문 가변 */
+      gap: 30px;
+      align-items: start;
     }
-    
-    /* 노트 섹션 및 구분선 (흰색) */
+
+    /* 좌측 사이드바 (노트 목차) */
+    .sidebar {
+      background: #112240;
+      border: 1px solid #233554;
+      border-radius: 8px;
+      padding: 20px;
+      position: sticky; /* 스크롤 내려도 화면 상단에 고정 */
+      top: 20px;
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+    }
+    .sidebar h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #CCD6F6;
+      border-bottom: 2px solid #FFFFFF;
+      padding-bottom: 8px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+    .sidebar a {
+      color: #8892B0;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: block;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .sidebar a:hover {
+      color: #FFFFFF;
+      transform: translateX(4px); /* 호버 시 약간 오른쪽으로 미는 효과 */
+      text-decoration: none;
+    }
+
+    /* 우측 본문 노트 카드 */
+    .notes-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
     .note-card {
       background: #112240;
       border: 1px solid #233554;
       border-radius: 8px;
       padding: 25px;
-      margin-bottom: 30px;
+      scroll-margin-top: 30px; /* 이동 시 상단 여백 확보 */
     }
     .note-card h2 {
-      border-bottom: 2px solid #FFFFFF; /* 흰색 구분선 */
+      border-bottom: 2px solid #FFFFFF;
       padding-bottom: 8px;
       margin-top: 0;
       margin-bottom: 20px;
@@ -80,7 +134,7 @@
       margin-top: 20px;
     }
 
-    /* 링크 스타일 */
+    /* 일반 링크, 코드, 인용구 스타일 */
     a {
       color: #FFFFFF;
       text-decoration: none;
@@ -89,8 +143,6 @@
     a:hover {
       text-decoration: underline;
     }
-
-    /* 코드 및 인라인 코드 스타일 (옵시디언 호환) */
     code {
       background: #020C1B;
       color: #64FFDA;
@@ -110,8 +162,6 @@
       background: none;
       padding: 0;
     }
-
-    /* 인용구 스타일 */
     blockquote {
       border-left: 4px solid #FFFFFF;
       margin: 15px 0;
@@ -126,7 +176,16 @@
       padding: 15px 0;
       margin-top: 40px;
     }
-    @media (max-width: 600px) {
+
+    /* 모바일 반응형 처리: 화면이 좁아지면 1열로 변경 */
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
       header h1 {
         font-size: 1.5rem;
       }
@@ -149,44 +208,83 @@
   </header>
 
   <div class="container">
-    
-    <!-- 첫 번째 노트 카드 예시 -->
-    <article class="note-card">
-      <h2>Example note</h2>
-      <p>옵시디언에서 작성한 내용을 이곳에 HTML 형태로 붙여넣으시면 됩니다.</p>
-      
-      <h3>1. Mathematical Formulas Example</h3>
-      <p>인라인 수식 예시: $E = mc^2$ 또는 Gödel's Incompleteness Theorem $\mathbf{PA} \nvdash \mathrm{Con}(\mathbf{PA})$.</p>
-      
-      <p>블록 수식 예시:</p>
-      $$
-      \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
-      $$
+    <!-- 왼쪽: 자동으로 생성되는 노트 목록 사이드바 -->
+    <aside class="sidebar">
+      <h3>Notes List</h3>
+      <ul id="toc-list">
+        <!-- JavaScript가 아래 note-card들의 h2 제목을 자동으로 읽어서 여기에 링크를 생성합니다 -->
+      </ul>
+    </aside>
 
-      <h3>2. Code Block Example</h3>
-      <pre><code># Lean 4 또는 Python 코드 등을 넣을 수 있습니다.
+    <!-- 오른쪽: 실제 노트 피드 -->
+    <main class="notes-feed">
+      
+      <!-- 첫 번째 노트 -->
+      <article class="note-card">
+        <h2>Example note</h2>
+        <p>옵시디언에서 작성한 내용을 이곳에 HTML 형태로 붙여넣으시면 됩니다.</p>
+        
+        <h3>1. Mathematical Formulas Example</h3>
+        <p>인라인 수식 예시: $E = mc^2$ 또는 Gödel's Incompleteness Theorem $\mathbf{PA} \nvdash \mathrm{Con}(\mathbf{PA})$.</p>
+        
+        <p>블록 수식 예시:</p>
+        $$
+        \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+        $$
+
+        <h3>2. Code Block Example</h3>
+        <pre><code># Lean 4 또는 Python 코드 등을 넣을 수 있습니다.
 def hello_logic():
     print("Mathematical Logic Study")
 </code></pre>
-    </article>
+      </article>
 
-    
+      <!-- 두 번째 노트 -->
+      <article class="note-card">
+        <h2>Fractions Example</h2>
+        <p>노트 내용...</p>
+        <div id="content"><p>$\frac{1}{3}$</p></div>
+      </article>
 
+      <!-- 세 번째 노트 추가 예시 (필요시 계속 복사해서 추가) -->
+      <!--
+      <article class="note-card">
+        <h2>Model Theory Basic</h2>
+        <p>새로운 노트 내용을 여기에 작성하세요...</p>
+      </article>
+      -->
 
-    <article class="note-card">
-      <h2>노트 제목</h2>
-      <p>노트 내용...</p>
-       <div id="content"><p>$\frac{1}{3}$</p></div>
-    </article>
-
-    
-
-
-    
+    </main>
   </div>
 
   <footer>
     <p>&copy; 2026 Chanjin Park | <a href="https://gschanjinpark.github.io">gschanjinpark.github.io</a></p>
   </footer>
+
+  <!-- 동적 목차 생성 스크립트 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const notes = document.querySelectorAll(".note-card");
+      const tocList = document.getElementById("toc-list");
+
+      notes.forEach((note, index) => {
+        const h2 = note.querySelector("h2");
+        if (h2) {
+          // ID가 없는 경우 고유 ID 자동 부여 (note-1, note-2 ...)
+          const noteId = note.id || `note-${index + 1}`;
+          note.id = noteId;
+
+          // 목차 리스트 항목 생성
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = `#${noteId}`;
+          a.textContent = `${index + 1}. ${h2.textContent}`;
+          
+          li.appendChild(a);
+          tocList.appendChild(li);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
