@@ -224,23 +224,120 @@
       
       <!-- 첫 번째 노트 -->
       <article class="note-card">
-        <h2>Example note</h2>
-        <p>옵시디언에서 작성한 내용을 이곳에 HTML 형태로 붙여넣으시면 됩니다.</p>
+        <h2>Current reading</h2>
+      
+        <h3>1. Category theory by Steve Awodey</h3>
+        <p>  
+          I am currently learning basic category theory, especially because i want to learn topos theory.
+          
+        </p>
         
-        <h3>1. Mathematical Formulas Example</h3>
-        <p>인라인 수식 예시: $E = mc^2$ 또는 Gödel's Incompleteness Theorem $\mathbf{PA} \nvdash \mathrm{Con}(\mathbf{PA})$.</p>
-        
-        <p>블록 수식 예시:</p>
-        $$
-        \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
-        $$
+        <h3>2. Sheaves in geometry and logic by Mac Lane and others</h3>
+        <p>    Same reason, want to understand the connection between topos theory and independence of axioms. </p>
 
-        <h3>2. Code Block Example</h3>
+        <h3>3. Constructivism in mathematics by Troelstra and others</h3>
+
+        <p> This book treats many detailed parts needed to start mathematical logic and constructive mathematics.</p>
+
+        <h3>4. Complex functions by A.Jones and others</h3>
+
+        <p> I am learning complex analysis and modular forms because of interest.</p>
+
+        <h3>5. Modular forms by Fred Diamond and others</h3>
+
+        <p> I am learning complex analysis and modular forms because of interest.</p>
+  
+        
         <pre><code># Lean 4 또는 Python 코드 등을 넣을 수 있습니다.
 def hello_logic():
     print("Mathematical Logic Study")
 </code></pre>
       </article>
+
+
+       <article class="note-card">
+        <h2>Undecidability by EPF axiom</h2>
+        <p>I wrote code that proves undecidability of partial computable functions, only using EPF axiom.
+        </p>
+
+        <p>I reffered to work of Dominik Kirst, <a href="https://link.springer.com/content/pdf/10.1007/s10817-022-09647-x.pdf?pdf=button"> </p>
+
+         <pre><code>
+import Godel.Basic
+import Mathlib.Data.Real.Basic
+
+
+set_option linter.style.whitespace false
+set_option linter.style.emptyLine false
+
+-- EPF
+
+def IsUniversal {Y : Type} (Θ : ℕ → (ℕ → Option Y)) :=
+∀ f :  ℕ → Option Y , ∃ c : ℕ,  ∀ x y , ((Θ c x) = some y ↔ f x = some y)
+
+
+axiom EPF (Y : Type) : ∃ Θ : ℕ → (ℕ → Option Y), IsUniversal Θ
+
+variable (Θ : ℕ → (ℕ → Option Bool))
+
+def self_halting : ℕ → Prop := fun x => (∃ y , Θ x x = some y )
+
+lemma self_halting_diverge
+  (Θ : ℕ → (ℕ → Option Bool))
+  (f : ℕ → Option Bool) :
+  (IsUniversal Θ) →
+  (∀ c, f c = some true ↔ self_halting Θ c) →
+  (∃ c, ∀ y, ¬ f c = some y) := by
+  intro h h'
+  unfold IsUniversal at h
+
+  let g : ℕ → Option Bool := fun x =>
+    match f x with
+    | some true => none
+    | some false      => some true
+    | none => none
+  have h'' := h g
+  rcases h'' with ⟨c', h_c'⟩
+  use c'
+  intro y contra
+  have h_c'' := h_c' c' y
+  cases y
+  · -- Case 1: y = false (contra : f c' = some false)
+    have h_g_none : g c' = true := by
+      dsimp [g]
+      rewrite [contra]
+      rfl
+    have := h' c'
+    rw [h_g_none] at h_c''
+    unfold self_halting at this
+    have non_true : ¬ f c' = some true := by
+      intro hh
+      rw [contra] at hh
+      contradiction
+    rw [this] at non_true
+    have h_iff_true := h_c' c' true
+    have h_theta_true : Θ c' c' = some true := h_iff_true.mpr h_g_none
+    have h_halt : ∃ y, Θ c' c' = some y := ⟨true, h_theta_true⟩
+    exact non_true h_halt
+  · -- Case 2: y = true (contra : f c' = some true)
+    have h_g_none : g c' = none := by
+      dsimp [g]
+      rewrite [contra]
+      rfl
+    have := h' c'
+    rw [h_g_none] at h_c''
+    rw [this] at contra
+    unfold self_halting at contra
+    rcases contra with ⟨y0, h_theta⟩
+    have h_iff := h_c' c' y0
+    have h_g_some : g c' = some y0 := h_iff.mp h_theta
+    rw [h_g_none] at h_g_some
+    nomatch h_g_some
+
+</code></pre>
+         
+      </article>
+
 
       <!-- 두 번째 노트 -->
       <article class="note-card">
